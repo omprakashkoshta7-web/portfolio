@@ -15,7 +15,8 @@ const Contact = () => {
     setStatus('loading');
     
     try {
-      const API_URL = import.meta.env.VITE_API_URL || 'https://ecommerce-7-z18z.onrender.com';
+      // Use environment variable or fallback to deployed backend URL
+      const API_URL = import.meta.env?.VITE_API_URL || 'https://ecommerce-7-z18z.onrender.com';
       await axios.post(`${API_URL}/api/contact`, formData);
       setStatus('success');
       setShowModal(true);
